@@ -1,0 +1,36 @@
+#detail_btn_2 {
+    text-align:right;
+}
+
+table thead {
+    background-color: #2C2C2C;
+    height: 10px;
+}
+
+table{
+    background-color: #2C2C2C;
+    font-size: 90%;
+    text-align: left;
+    overflow-x: scroll;
+}
+
+img {
+    width: 100px;
+    height: 100px;
+}
+
+#item_name{
+    color: rgb(35, 151, 254);
+}
+#item_name a:hover{
+    text-decoration: underline;
+}
+
+#wish_btn{
+    background-color: white;
+    height:38px;
+}
+
+.selected {
+    background-color: rgb(199, 199, 199) !important;
+}

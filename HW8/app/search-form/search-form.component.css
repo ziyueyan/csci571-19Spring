@@ -1,0 +1,81 @@
+#product_search {
+    margin: auto;
+    padding: 10px;
+    text-align: left;
+    font-size: 85%;
+    background-color: #2C2C2C;
+}
+
+#form_title {
+    text-align: center;
+    margin: 1px;
+    padding-bottom: 5px;
+}
+
+.red {
+    color: red;
+}
+#submit {
+    height: 30px;
+    background-color: white; 
+}
+
+#clear {
+    height: 30px;
+    background-color: white;
+}
+
+#submit:hover {
+    background-color: rgb(189, 189, 189);
+}
+#submit:focus {
+    background-color: darkgrey;
+}
+#submit:active {
+    border: #2C2C2C;
+    background-color: darkgrey;
+}
+
+#clear:hover {
+    background-color: rgb(189, 189, 189);
+}
+#clear:focus {
+    background-color: darkgrey;
+}
+#clear:active {
+    border: rgb(90, 90, 90);
+    background-color: darkgrey;
+}
+
+.on {
+    color: white;
+    background-color: #2C2C2C;
+}
+
+.material-icons{
+    vertical-align: middle;
+}
+
+.nav-pills .nav-link.active, .nav-pills .show>.nav-link {
+    color: #fff;
+    background-color: #2C2C2C;
+}
+
+.nav > li > a  { 
+    font-size: 85%;
+    position: relative;
+    display: block;
+    padding: 5px 15px;
+}
+
+a {
+    color: #2C2C2C;
+}
+
+.hide {
+    display: none;
+}
+
+
+
+

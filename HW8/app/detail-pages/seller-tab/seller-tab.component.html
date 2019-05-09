@@ -1,0 +1,56 @@
+<div *ngIf="show_seller">
+    <table class="table table-dark header table_head">
+        <tbody>
+            <tr style="background-color: #2C2C2C; height: 50px;"><td id="seller_title"><b>{{title | uppercase}}</b></td></tr>
+        </tbody>
+    </table>
+    <table class="table table-dark">
+        <tbody>
+            <tr *ngIf="seller.FeedbackScore"> 
+              <th><b>Feedback&nbsp;Score</b></th>
+              <td>{{seller.FeedbackScore}}</td>
+            </tr>
+            <tr *ngIf="seller.PositiveFeedbackPercent && seller.PositiveFeedbackPercent"> 
+                <th><b>Popularity</b></th>
+                <td>
+                    <div class="progress-wrapper">
+                        <div>
+                            <round-progress
+                            [current]="seller.PositiveFeedbackPercent"
+                            [max]="100"
+                            [color]="'green'"
+                            [radius]="17"
+                            [stroke]="2"
+                            [semicircle]="false"
+                            [rounded]="false"
+                            [clockwise]="true"
+                            [responsive]="false"></round-progress></div>
+                    
+                        <div class="text">{{seller.PositiveFeedbackPercent}}</div>
+                    </div>
+                </td>
+            </tr>
+            <tr *ngIf="seller.FeedbackRatingStar"> 
+                <th><b>Feedback&nbsp;Rating&nbsp;Star</b></th>
+                <td><i class="material-icons big" [style.color]="seller.FeedbackRatingStar">stars</i></td>
+            </tr>
+            <tr *ngIf="seller.TopRatedSeller"> 
+                <th><b>Top&nbsp;Rated</b></th>
+                <td *ngIf="seller.TopRatedSeller == 'true'; else F">
+                        <i class="material-icons">done</i>
+                </td>
+                <ng-template #F>
+                    <td><i class="material-icons red"> clear</i></td>
+                </ng-template>
+            </tr>
+            <tr *ngIf="item.Storefront && item.Storefront.StoreName"> 
+                <th><b>Store&nbsp;Name</b></th>
+                <td>{{item.Storefront.StoreName}}</td>
+            </tr>
+            <tr *ngIf="item.Storefront && item.Storefront.StoreURL"> 
+                <th><b>Buy&nbsp;Product&nbsp;At</b></th>
+                <td><a href="{{item.Storefront.StoreURL}}" target="_blank">Store</a></td>
+            </tr>
+          </tbody>
+        </table>
+</div>

@@ -1,0 +1,56 @@
+.sort {
+    margin-top: 10px;
+    margin-bottom: 7px;
+}
+
+.drop {
+
+    margin-right: 25px;
+}
+
+.drop2 {
+
+    background-color: rgb(223, 223, 223)
+}
+
+.similar_row{
+    font-size: 85%;
+    text-align: left;
+    margin-bottom: 4px;
+    
+    border-radius: 5px;
+    overflow: hidden;
+    background-color: #2C2C2C;
+}
+
+.similar_pic{
+    padding: 10px;
+    vertical-align: center;
+    text-align: left;
+}
+.similar_info {
+    padding: 10px;
+    text-align: left;
+    vertical-align: top;
+}
+
+img {
+    width: 140px;
+    height: 140px;
+}
+p{
+    margin:0px;
+}
+
+a{
+    color: rgb(77, 141, 143);
+}
+
+.similar_div {
+    border-radius: 3px;
+}
+
+.btn {
+    color: white;
+    background-color: #2C2C2C;
+}

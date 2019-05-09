@@ -1,0 +1,112 @@
+<br>
+<div class="alert alert-warning" role="alert" *ngIf="error" >   
+    Error.
+</div>
+<div *ngIf="showTitle && showDetail">
+  <h6><b>{{Item.Title}}</b></h6>
+</div>
+
+<div *ngIf="showProgess">
+  <div class="progress">
+      <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width: 50%"></div>
+  </div>
+</div>
+
+<div [hidden]="!showDetail">
+  <div id="list_btn" class="row justify-content-between">
+    <div class="col-sm-4 text-left" >
+      <button type="button" class="btn btn-light" (click)="back_to_list()"><i class="material-icons">keyboard_arrow_left</i>List</button>
+    </div>
+    <div class="col-sm-4 text-right" *ngIf="showDetail">
+      <img  id="fb" src="http://csci571.com/hw/hw8/Images/facebook.png" (click)="fb_share()">
+      <button id="add_wish" type="button" class="btn btn-light">
+          <span *ngIf="!checkWish(Item.ItemID); else NW">
+              <i class="material-icons" (click)="addWish(Item.ItemID, Item.PictureURL[0],Item.Title, Item.CurrentPrice.Value, ship.shippingServiceCost[0].__value__, Item.Seller.UserID, ship)">add_shopping_cart</i>
+          </span>
+          <ng-template #NW>
+              <i class="material-icons" (click)="removeWish(Item.ItemID)" style="color: darkgoldenrod">remove_shopping_cart</i>
+          </ng-template>
+      </button>
+    </div>
+  </div>
+  <div [hidden]="hideTab">
+    <nav>
+        <ul class="nav nav-tabs nav-pills justify-content-end" id="nav-tabs" role="tablist">
+          <li class="nav-item">
+            <a href="#" role="tab" data-toggle="tab" class="nav-link" id="info-tab" aria-controls="info-tab-component" [class.active]="active_tab == 1" (click)="setActive(1)">Product</a>
+          </li>
+          <li class="nav-item">
+            <a href="#" role="tab" data-toggle="tab" class="nav-link" id="photo-tab" aria-controls="photo-tab-component" [class.active]="active_tab == 2" (click)="setActive(2)">Photos</a>
+          <li class="nav-item">
+            <a href="#" role="tab" data-toggle="tab" class="nav-link" id="shipping-tab" aria-controls="shipping-tab-component" [class.active]="active_tab == 3" (click)="setActive(3)">Shipping</a>
+          </li>
+          <li class="nav-item">
+            <a href="#" role="tab" data-toggle="tab" class="nav-link" id="seller-tab" aria-controls="seller-tab-component" [class.active]="active_tab == 4" (click)="setActive(4)">Seller</a>
+          </li>
+          <li class="nav-item">
+            <a href="#" role="tab" data-toggle="tab" class="nav-link" id="similar-tab" aria-controls="similar-tab-component" [class.active]="active_tab == 5" (click)="setActive(5)">Similar&nbsp;Products</a>
+          </li>
+          <li class="nav-item">
+              <a href="#" role="tab" data-toggle="tab" class="nav-link" id="similar-tab2" aria-controls="similar-tab-component" [class.active]="active_tab == 5" (click)="setActive(5)">Releted</a>
+            </li>
+        </ul>
+    </nav>
+
+    <div class="tab-content" id="nav-tab-content" [@fadeAnimations]="active_tab">
+      <div role="tabpanel" class="tab-pane" [class.active]="active_tab == 1" id="info-tab-component" aria-labelledby="info-tab">
+        <app-info-tab></app-info-tab>
+      </div>
+      <div role="tabpanel" class="tab-pane" [class.active]="active_tab == 2" id="photo-tab-component" aria-labelledby="photos-tab">
+        <app-photo-tab></app-photo-tab>
+      </div>
+      <div role="tabpanel" class="tab-pane" [class.active]="active_tab == 3" id="shipping-tab-component" aria-labelledby="shipping-tab">
+        <app-shipping-tab></app-shipping-tab>
+      </div>
+      <div role="tabpanel" class="tab-pane" [class.active]="active_tab == 4" id="seller-tab-component" aria-labelledby="seller-tab">
+        <app-seller-tab></app-seller-tab>
+      </div>
+      <div role="tabpanel" class="tab-pane" [class.active]="active_tab == 5" id="similar-tab-component" aria-labelledby="similar-tab">
+        <app-similar-tab></app-similar-tab>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<!--
+  <div *ngIf="showDetail" class="col-sm-10 offset-1">
+      <li class="nav-item">
+        <button class="btn btn-sm nav-link on active" (click)="showInfo()">Product</button>
+      </li>
+      <li class="nav-item">
+        <button class="btn btn-sm nav-link" (click)="showPhotos()">Photos</button>
+      </li>
+      <li class="nav-item">
+        <button class="btn btn-sm nav-link" (click)="showShipping()">Shipping</button>
+      </li>
+      <li class="nav-item">
+        <button class="btn btn-sm nav-link" (click)="showSeller()">Seller</button>
+      </li>
+      <li class="nav-item">
+        <button class="btn btn-sm nav-link" (click)="showSimilar()">Similar&nbsp;Products</button>
+      </li>
+    <li class="nav-item">
+        <a class="btn btn-sm nav-link active on" (click)="showInfo()">Product</a>
+      </li>
+      <li class="nav-item">
+        <a class="btn btn-sm nav-link" (click)="showPhotos()">Photos</a>
+      </li>
+      <li class="nav-item">
+        <a class="btn btn-sm nav-link" (click)="showShipping()">Shipping</a>
+      </li>
+      <li class="nav-item">
+        <a class="btn btn-sm nav-link" (click)="showSeller()">Seller</a>
+      </li>
+      <li class="nav-item">
+        <a class="btn btn-sm nav-link" (click)="showSimilar()">Similar&nbsp;Products</a>
+      </li>
+      <router-outlet></router-outlet>
+
+    -->
+

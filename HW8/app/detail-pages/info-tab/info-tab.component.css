@@ -1,0 +1,26 @@
+tbody > tr:nth-child(2n+1) {
+    background-color: rgb(56, 56, 56);
+}
+tbody > tr:nth-child(2n) {
+    background-color: #2C2C2C;
+}
+
+th {
+    width: 30%;
+}
+table{
+    font-size: 90%;
+    text-align: left;
+    vertical-align:middle;
+}
+a{
+    color: rgb(77, 141, 143);
+}
+
+.picture_border{
+    border: 7px solid #2C2C2C;
+}
+
+img{
+    padding: 5px;
+}

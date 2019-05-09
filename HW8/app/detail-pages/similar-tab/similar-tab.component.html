@@ -1,0 +1,35 @@
+<div *ngIf="show_similar" >
+    <div class="alert alert-warning" role="alert" *ngIf="noRecord" >   
+        No Records.
+    </div>
+    <div *ngIf="!noRecord">
+        <div class="row col-sm-12 sort form-group">
+            <select class="custom-select custom-select-sm col-sm-2 drop form-control" #bySelect (change)="byChange(bySelect.value)">
+                <option value="Default">Default</option>
+                <option value="Product Name">Product Name</option>
+                <option value="Days Left">Days Left</option>
+                <option value="Price">Price</option>
+                <option value="Shipping Cost">Shipping Cost</option>
+            </select>
+            <select class="custom-select custom-select-sm col-sm-2 drop2 form-control" #orderSelect (change)="orderChange(orderSelect.value)">
+                <option value="Ascending">Ascending</option>
+                <option value="Decending">Decending</option>
+            </select>
+        </div>
+        <div class="col-sm-12">
+            <div *ngFor="let item of items | slice: 0:limit | orderPipe: bySelect.value : orderSelect.value" class="similar_row row ">
+                <div class="similar_pic"><img src="{{item.imageURL}}"></div>
+
+                <div class="similar_info">
+                    <p *ngIf="item.title"><a href="{{item.viewItemURL}}" target="_blank">{{item.title}}</a></p>
+                    <p *ngIf="item.buyItNowPrice" style="color:rgb(157, 192, 106)">Price: ${{item.buyItNowPrice.__value__}}</p>
+                    <p *ngIf="item.shippingCost" style="color: rgb(205, 172, 63)">Shipping Cost: ${{item.shippingCost.__value__}}</p>
+                    <p *ngIf="item.timeLeft" style="color: white">Days Left: {{item.timeLeft | dayPipe}}</p>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <button class="btn btn-sm" *ngIf="num &gt; limit" (click)="showMore()">Show More</button>
+    <button class="btn btn-sm" *ngIf="limit &gt; 5" (click)="showLess()">Show Less</button>
+</div>

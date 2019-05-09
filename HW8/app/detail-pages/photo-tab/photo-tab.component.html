@@ -1,0 +1,24 @@
+<div class="alert alert-warning" role="alert" *ngIf="no_photo" >   
+  No Photos.
+</div>
+<div class="alert alert-warning" role="alert" *ngIf="error" >   
+  Error.
+</div>
+<div *ngIf="show_photo">
+  <div class="row">
+    <div class="col-sm-4">
+      <div class="photo" *ngIf="num &gt; 0"><img class="col-sm-12" src="{{photos[0].link}}" (click)="open_new_tab(photos[0].link)"></div>
+      <div class="photo" *ngIf="num &gt; 3"><img class="col-sm-12" src="{{photos[3].link}}" (click)="open_new_tab(photos[3].link)"></div>
+    </div>
+    <div class="col-sm-4">
+      <div class="photo" *ngIf="num &gt; 1"><img class="col-sm-12" src="{{photos[1].link}}" (click)="open_new_tab(photos[1].link)"></div>
+      <div class="photo" *ngIf="num &gt; 4"><img class="col-sm-12" src="{{photos[4].link}}" (click)="open_new_tab(photos[4].link)"></div>
+      <div class="photo" *ngIf="num &gt; 6"><img class="col-sm-12" src="{{photos[6].link}}" (click)="open_new_tab(photos[6].link)"></div>
+    </div>
+    <div class="col-sm-4">
+      <div class="photo" *ngIf="num &gt; 2"><img class="col-sm-12" src="{{photos[2].link}}" (click)="open_new_tab(photos[2].link)"></div>
+      <div class="photo" *ngIf="num &gt; 5"><img class="col-sm-12" src="{{photos[5].link}}" (click)="open_new_tab(photos[5].link)"></div>
+      <div class="photo" *ngIf="num &gt; 7"><img class="col-sm-12" src="{{photos[7].link}}" (click)="open_new_tab(photos[7].link)"></div>
+  </div>
+  </div>
+</div>

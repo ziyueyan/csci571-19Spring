@@ -1,0 +1,32 @@
+#fb{
+    height: 35px;
+}
+
+.nav-pills .nav-link.active, .nav-pills .show>.nav-link {
+    color: #fff;
+    background-color: #2C2C2C;
+}
+
+.nav > li > a  { 
+    font-size: 85%;
+    position: relative;
+    display: block;
+    padding: 5px 15px;
+}
+
+@media screen and (max-width: 600px) {
+    #similar-tab2 { display: inline-block; }
+    #similar-tab { display: none; }
+    .nav > li > a  { 
+        padding: 5px 7px;
+    }
+}
+
+@media screen and (min-width: 601px) {
+    #similar-tab { display: inline-block; }
+    #similar-tab2 { display: none; }
+}
+
+a {
+    color: #2C2C2C;
+}

@@ -1,0 +1,25 @@
+tbody > tr:nth-child(2n+1) {
+    background-color: rgb(56, 56, 56);
+}
+tbody > tr:nth-child(2n) {
+    background-color: #2C2C2C;
+}
+
+th {
+    width: 60%;
+}
+table{
+    font-size: 90%;
+    text-align: left;
+    vertical-align:middle;
+}
+
+.material-icons {
+    vertical-align: middle;
+    font-size: 130%;
+    color: green;
+}
+
+.material-icons.red{
+    color: red;
+}

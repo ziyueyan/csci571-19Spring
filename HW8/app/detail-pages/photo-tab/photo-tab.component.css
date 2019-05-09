@@ -1,0 +1,11 @@
+.photo {
+    border: 5px solid #2C2C2C;
+    margin:4px;
+}
+img {
+    padding: 0;
+}
+
+.col-sm-4 {
+    padding: 0px;
+}

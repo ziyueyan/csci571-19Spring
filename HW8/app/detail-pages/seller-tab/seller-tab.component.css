@@ -1,0 +1,59 @@
+tbody > tr:nth-child(2n+1) {
+    background-color: rgb(56, 56, 56);
+    
+}
+tbody > tr:nth-child(2n) {
+    background-color: #2C2C2C;
+}
+.table_head {
+    margin-bottom: 0;
+    padding-bottom: 0;
+
+}
+
+tbody th {
+    width: 50%;
+    vertical-align:middle;
+}
+
+table{
+    font-size: 90%;
+    text-align: left;
+}
+#seller_title{
+    text-align: center;
+    vertical-align: center;
+}
+
+.material-icons {
+    vertical-align: middle;
+    font-size: 130%;
+    color: green;
+}
+
+.material-icons.big{
+    font-size: 200%;
+}
+
+.material-icons.red{
+    color: red;
+}
+
+.progress-wrapper{
+    position: relative;
+}
+
+.progress-wrapper .text{
+    position: absolute;
+    top: 50%;
+    left: 5px;
+    transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);
+    text-align: left;
+    width: 100%;
+    z-index: 1;
+}
+
+a{
+    color: rgb(77, 141, 143);
+}

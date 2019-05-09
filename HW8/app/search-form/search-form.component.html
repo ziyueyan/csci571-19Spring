@@ -1,0 +1,178 @@
+<br>
+<div id="product_search" class="text-white">
+  <br>
+    <h5 id="form_title">Product Search</h5>
+  <br> 
+
+  <form class="form-horizontal" #searchForm="ngForm" novalidate id='search_form'>
+    <div class="form-group row">
+      <label for="keyword" class="col-sm-2 col-form-label offset-sm-2">Keyword<span class="red">*</span></label>
+      <div class="col-sm-8">
+        <input  [(ngModel)]="form.keyword" #keyword="ngModel" 
+        [ngClass]="{'form-control':true,'form-control-sm':true, 'col-sm-8':true,'is-invalid':keyword.invalid && keyword.touched}" 
+        name="keyword" id="keyword" type="text" required pattern="\s*\S.*" placeholder="Enter Product Name(eg.iPhone 8)">
+        <div class="invalid-feedback">
+          Please enter a keyword.
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <label for="category" class="col-sm-2 col-form-label offset-sm-2">Category</label>
+      <div class="col-sm-8">
+        <select class="custom-select custom-select-sm col-sm-3" [(ngModel)]="form.category" id="category" name="category">
+            <option value="All Categories">All Categories</option>
+            <option value="Art">Art</option>
+            <option value="Baby">Baby</option>
+            <option value="Books">Books</option>
+            <option value="Clothing">Clothing</option>
+            <option value="Shoes & Accessories">Shoes &amp; Accessories</option>
+            <option value="Computers/Tablets & Networking">Computers/Tablets &amp; Networking</option>
+            <option value="Health & Beauty">Health &amp; Beauty</option>
+            <option value="Music">Music</option>
+            <option value="Video Games & Consoles">Video Games &amp; Consoles</option>
+        </select>
+      </div>
+    </div>
+      
+    <div class="form-group row">
+        <label for="condition" class="col-sm-2 col-form-label offset-sm-2">Condition</label>
+        <div class="col-sm-8">
+          <div class="form-check form-check-inline">
+            <input class="condition" [(ngModel)]="form.new" id="new" name="new" type="checkbox">
+            <label class="form-check-label" for="new">&nbsp;New</label>
+          </div>
+          <div class="form-check form-check-inline">
+              <input class="condition" [(ngModel)]="form.used" id="used" name="used" type="checkbox" >
+              <label class="form-check-label" for="used">&nbsp;Used</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="condition" [(ngModel)]="form.unspecified" id="unspecified" name="unspecified" type="checkbox">
+            <label class="form-check-label" for="unspecified">&nbsp;Unspecified</label>
+          </div>
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <label for="shipping" class="col-sm-2 col-form-label offset-sm-2">Shipping Options</label>
+        <div class="col-sm-8">
+          <div class="form-check form-check-inline">
+            <input class="shipping" [(ngModel)]="form.localpickup" id="localpickup" name="localpickup" type="checkbox" >
+            <label class="form-check-label" for="localpickup">&nbsp;Local Pickup</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="shipping" [(ngModel)]="form.freeshipping" id="freeshipping" name="freeshipping" type="checkbox" >
+            <label class="form-check-label" for="freeshipping">&nbsp;Free Shipping</label>
+          </div>
+      </div>
+    </div>
+      
+    <div class="form-group row">
+        <label for="miles" class="col-sm-2 col-form-label offset-sm-2">Distaces(Miles)</label>
+        <div class="col-sm-8">
+          <input class="form-control form-control-sm grey col-sm-3" [(ngModel)]="form.miles" id="miles" name="miles" type="text" placeholder="10"> 
+        </div>
+    </div>
+
+    <div class="form-group">
+      <div class="row">
+        <legend class="col-form-label col-sm-2 offset-sm-2">From<span class="red">*</span></legend>
+        <div class="col-sm-8">
+          <div class="form-check">
+            <input class="form-check-input" [(ngModel)]="form.locations" type="radio" id="here" name="locations" value="here" checked>
+            <label class="form-check-label" for="here">Current Location</label>
+          </div>
+          <div>
+            <input type="hidden" id="herezipcode" name="herezipcode" [(ngModel)]="form.herezipcode">
+          </div>
+          <div class="form-check">
+              <input class="form-check-input" [(ngModel)]="form.locations" type="radio" id="zip" name="locations" value="zip">
+              <label class="form-check-label" for="zip">Other. Please sepcify zip code:</label>
+          </div>
+        </div>
+        <div class="col-sm-8 offset-sm-4">
+          <input #zipcode="ngModel" [(ngModel)]="form.zipcode" pattern="^\d{5}$"
+          [ngClass]="{'form-control':true, 'form-control-sm':true, 'col-sm-8':true, 'is-invalid':zipcode.invalid && zipcode.touched}"  
+          id="zipcode" name="zipcode" type="text" required [disabled]="form.locations!='zip'"
+          [matAutocomplete]="auto" matInput (keyup)="autoZip(zipcode.value)">
+          <mat-autocomplete #auto="matAutocomplete">
+            <mat-option *ngFor="let option of options" [value]="option">{{ option }}</mat-option>
+          </mat-autocomplete>
+          <div class="invalid-feedback" >
+            Please enter a zip code.
+          </div>
+        </div>
+
+      </div>
+    </div>
+    <div id="search_buttons">
+      <button [disabled]="zipcode.invalid || keyword.invalid ||!allowZip" id="submit" name="submit" type="submit" value="Submit" class="btn btn-sm offset-sm-2" (click)="form_Submit()">
+        <span class="material-icons">search</span><span style="padding-bottom: 5px">Search</span>
+      </button>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <button id="clear" name="clear" class="btn btn-sm" (click)="clear_Result()">
+        <span class="material-icons">clear_all</span>Clear
+      </button>
+    </div>
+  </form>
+</div>
+<br>
+
+
+
+<div>
+  <nav>
+      <ul class="nav nav-pills justify-content-center" id="nav-tabs" role="tablist">
+        <li class="nav-item">
+          <a href="#" role="tab" data-toggle="tab" class="nav-link" id="result-list" aria-controls="result-list-component" [class.active]="active_list == 1" (click)="setActive(1)">&nbsp;Results&nbsp;</a>
+        </li>
+        <li class="nav-item">
+          <a href="#" role="tab" data-toggle="tab" class="nav-link" id="wish-list" aria-controls="wish-list-component" [class.active]="active_list == 2" (click)="setActive(2)">&nbsp;Wish List&nbsp;</a>
+        </li>
+      </ul>
+  </nav>
+
+  <div class="tab-content" id="nav-tab-content">
+    <div [@routeAnimations]="show">
+      <div role="tabpanel" class="tab-pane" [class.hide]="active_list == 2" [class.active]="show == 'list' && active_list == 1" id="result-list-component" aria-labelledby="result-list"  *ngIf="!clear">
+        <app-result-list  (list_change)="change_to_List($event)"></app-result-list>
+      </div>
+      <div role="tabpanel" class="tab-pane" [class.hide]="active_list == 1" [class.active]="show == 'list' && active_list == 2" id="wish-list-component" aria-labelledby="wish-list">
+        <app-wish-list  (list_change)="change_to_List($event)"></app-wish-list>
+      </div>
+    </div>
+    <div [@routeAnimations2]="show">
+      <div role="tabpanel" class="tab-pane" [class.active]="show == 'detail'" id="detail-list-component" aria-labelledby="detail-list" >
+        <app-detail-pages  (list_change)="change_to_List($event)"></app-detail-pages>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--
+<div>
+    <button class="btn btn-sm on" id="res" (click)="show_Result()">&nbsp;Results&nbsp;</button>
+    <button class="btn btn-sm" id="wish" (click)="show_Wish()">&nbsp;Wish List&nbsp;</button>
+  
+  <div *ngIf="!clear" >
+    <div class="list_toggle" [class.hide]="show == 'detail'" [@routeAnimations]="show">
+        <app-result-list [class.hide]="!showResult" (change)="change_to_List($event)"></app-result-list>
+        <app-wish-list [class.hide]="!showWish" (change)="change_to_List($event)"></app-wish-list>
+    </div>
+    <div class="detail_toggle" [class.hide]="show == 'list'" [@routeAnimations2]="show">
+        <app-detail-pages (change)="change_to_Detail($event)"></app-detail-pages>
+    </div>
+  </div>
+</div>
+{{searchForm.value | json}}<br>{{form | json}}
+-->
+
+
+<!--{{submittest}}
+
+
+
+<button class="btn btn-sm on" id="res" routerLink="/result">&nbsp;Results&nbsp;</button>
+<button class="btn btn-sm" id="wish" routerLink="/wishlist">&nbsp;Wish List&nbsp;</button>
+<br>
+-->
