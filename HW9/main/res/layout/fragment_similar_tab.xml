@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".SimilarTabFragment">
+
+    <TextView
+        android:id="@+id/no_result"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/background"
+        android:gravity="center"
+        android:text="No results"
+        android:textAlignment="center"
+        android:visibility="gone"/>
+
+    <RelativeLayout
+        android:id="@+id/similar_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+
+        <Spinner
+            android:id="@+id/sort_spinner"
+            android:layout_margin="5dp"
+            android:layout_width="170dp"
+            android:layout_height="wrap_content"
+            android:entries="@array/sort"></Spinner>
+
+        <Spinner
+            android:id="@+id/by_spinner"
+            android:layout_toRightOf="@+id/sort_spinner"
+            android:layout_margin="5dp"
+            android:layout_width="170dp"
+            android:layout_height="wrap_content"
+            android:entries="@array/by"></Spinner>
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/similars"
+            android:layout_below="@+id/sort_spinner"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scrollbars="vertical" />
+
+    </RelativeLayout>
+
+
+</FrameLayout>

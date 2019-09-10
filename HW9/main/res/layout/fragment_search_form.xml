@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".SearchFormFragment">
+
+    <TextView
+        android:id="@+id/keyword_lable"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="15dp"
+        android:text="Keyword"/>
+    <EditText
+        android:id="@+id/Keyword"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="25dp"
+        android:hint="Enter keyword" />
+    <TextView
+        android:id="@+id/keyword_error"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/formError"
+        android:layout_marginLeft="15dp"
+        android:text="Please enter mandatory field"
+        android:visibility="gone"/>
+
+    <TextView
+        android:id="@+id/category_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="5dp"
+        android:text="Category"/>
+    <Spinner
+        android:id="@+id/Category"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:entries="@array/category_items"></Spinner>
+
+    <TextView
+        android:id="@+id/condition"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="5dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Condition"/>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <CheckBox
+            android:id="@+id/New"
+            android:layout_marginLeft="15dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="New"/>
+        <CheckBox
+            android:id="@+id/Used"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/New"
+            android:layout_marginLeft="15dp"
+            android:text="Used" />
+        <CheckBox
+            android:id="@+id/Unspecified"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/Used"
+            android:layout_marginLeft="15dp"
+            android:text="Unspecified" />
+    </RelativeLayout>
+
+
+    <TextView
+        android:id="@+id/shipping"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="5dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Shipping Options"/>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <CheckBox
+            android:id="@+id/Local"
+            android:layout_marginLeft="15dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Local Pickup"/>
+        <CheckBox
+            android:id="@+id/Free"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/Local"
+            android:layout_marginLeft="15dp"
+            android:text="Free Shipping" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:id="@+id/nearby_label"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="5dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Enable Nearby Search"/>
+
+        <CheckBox
+            android:id="@+id/nearby"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_toRightOf="@+id/nearby_label" />
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:id="@+id/nearby_search"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone">
+        <EditText
+            android:id="@+id/miles"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="25dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Miles from"/>
+
+        <TextView
+            android:id="@+id/from"
+            android:layout_below="@+id/miles"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="5dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="From"/>
+        <RadioGroup
+            android:id="@+id/radio"
+            android:layout_below="@id/from"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="5dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <RadioButton
+                android:id="@+id/here"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Current Location"
+                android:checked="true"/>
+            <RadioButton
+                android:id="@+id/other"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </RadioGroup>
+
+        <EditText
+            android:id="@+id/zipcode"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/radio"
+            android:layout_marginLeft="45dp"
+            android:layout_marginBottom="-1dp"
+            android:hint="zipcode"
+            android:enabled="false"/>
+        <TextView
+            android:id="@+id/zip_error"
+            android:layout_marginLeft="15dp"
+            android:layout_below="@+id/zipcode"
+            android:textColor="@color/formError"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Please enter mandatory field"
+            android:visibility="gone"/>
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center">
+        <Button
+            android:id="@+id/searchBut"
+            android:layout_marginTop="10dp"
+            android:layout_width="161dp"
+            android:layout_height="wrap_content"
+            android:background="@color/orange"
+            android:textColor="@android:color/white"
+            android:text="SEARCH" />
+
+        <Button
+            android:id="@+id/clearBut"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="15dp"
+            android:layout_toRightOf="@+id/searchBut"
+            android:layout_width="161dp"
+            android:layout_height="wrap_content"
+            android:background="@color/orange"
+            android:textColor="@android:color/white"
+            android:text="CLEAR" />
+    </RelativeLayout>
+
+</LinearLayout>

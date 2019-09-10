@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    tools:context=".InfoTabFragment">
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/background"
+        android:orientation="vertical">
+
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/info_photos"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#fff"/>
+
+
+        <TextView
+            android:id="@+id/info_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:layout_marginTop="10dp"
+            android:text="title"
+            android:textColor="#000"
+            android:textSize="22dp" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:id="@+id/info_price"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+                android:text="price"
+                android:textColor="@color/colorPrimary"
+                android:textSize="17dp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/info_ship"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="7dp"
+                android:layout_marginTop="5dp"
+                android:layout_toRightOf="@+id/info_price"
+                android:text="ship"
+                android:textSize="17dp" />
+        </RelativeLayout>
+
+
+        <TextView
+            android:id="@+id/line1"
+            android:layout_width="380dp"
+            android:layout_height="1dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:background="#c9c9c9" />
+
+        <TextView
+            android:id="@+id/info_Highlights"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:layout_marginLeft="10dp"
+            android:text="Highlights"
+            android:textColor="#000"
+            android:textSize="17dp"
+            android:textStyle="bold"
+            android:drawableLeft="@drawable/information"
+            android:drawablePadding="10dp" />
+
+        <TableLayout
+            android:id="@+id/info_table"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TableRow
+                android:layout_margin="10dp"
+                android:id="@+id/sub_row">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="35dp"
+                    android:layout_marginRight="40dp"
+                    android:text="Subtitle"
+                    android:textColor="#000"
+                    android:textSize="15dp"/>
+
+                <TextView
+                    android:id="@+id/info_subtitle"
+                    android:layout_height="wrap_content"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:text="Subtitle"
+                    android:textSize="15dp"/>
+            </TableRow>
+
+            <TableRow android:layout_margin="10dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Price"
+                    android:layout_marginLeft="35dp"
+                    android:layout_marginRight="40dp"
+                    android:textColor="#000"
+                    android:textSize="15dp"/>
+
+                <TextView
+                    android:id="@+id/info_Price"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Price"
+                    android:textSize="15dp"/>
+            </TableRow>
+
+            <TableRow android:layout_margin="10dp"
+                android:id="@+id/brand_row">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="35dp"
+                    android:text="Brand"
+                    android:textColor="#000"
+                    android:textSize="15dp"/>
+
+                <TextView
+                    android:id="@+id/info_Brand"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Brand"
+                    android:textSize="15dp"/>
+            </TableRow>
+        </TableLayout>
+
+        <TextView
+            android:id="@+id/line2"
+            android:layout_width="380dp"
+            android:layout_height="1dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:background="#c9c9c9" />
+
+        <TextView
+            android:id="@+id/info_Specs"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:layout_marginLeft="10dp"
+            android:text="Specifications"
+            android:textColor="#000"
+            android:textSize="17dp"
+            android:textStyle="bold"
+            android:drawableLeft="@drawable/wrench"
+            android:drawablePadding="10dp"/>
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/specs"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#fff"
+            android:layout_marginLeft="45dp"/>
+
+
+    </LinearLayout>
+    </ScrollView>
+
+</FrameLayout>
